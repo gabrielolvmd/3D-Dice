@@ -109,7 +109,6 @@ h2 {
 }
 
 .controls {
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -262,6 +261,7 @@ input[type='radio']:focus-visible + label {
   .controls {
     display: flex;
     align-items: center;
+    margin-top: 50px;
   }
 
   .x-axis,
