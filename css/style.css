@@ -1,0 +1,280 @@
+:root {
+  --x: 0deg;
+  --y: 0deg;
+  --z: 0deg;
+}
+
+:root:has([name='x'][value='15']:checked) {
+  --x: 15deg;
+}
+
+:root:has([name='x'][value='45']:checked) {
+  --x: 45deg;
+}
+
+:root:has([name='x'][value='90']:checked) {
+  --x: 90deg;
+}
+
+:root:has([name='x'][value='135']:checked) {
+  --x: 135deg;
+}
+
+:root:has([name='x'][value='180']:checked) {
+  --x: 180deg;
+}
+
+:root:has([name='x'][value='225']:checked) {
+  --x: 225deg;
+}
+
+:root:has([name='x'][value='270']:checked) {
+  --x: 270deg;
+}
+
+:root:has([name='y'][value='15']:checked) {
+  --y: 15deg;
+}
+
+:root:has([name='y'][value='45']:checked) {
+  --y: 45deg;
+}
+
+:root:has([name='y'][value='90']:checked) {
+  --y: 90deg;
+}
+
+:root:has([name='y'][value='135']:checked) {
+  --y: 135deg;
+}
+
+:root:has([name='y'][value='180']:checked) {
+  --y: 180deg;
+}
+
+:root:has([name='y'][value='225']:checked) {
+  --y: 225deg;
+}
+
+:root:has([name='y'][value='270']:checked) {
+  --y: 270deg;
+}
+
+:root:has([name='z'][value='15']:checked) {
+  --z: 15deg;
+}
+
+:root:has([name='z'][value='45']:checked) {
+  --z: 45deg;
+}
+
+:root:has([name='z'][value='90']:checked) {
+  --z: 90deg;
+}
+
+:root:has([name='z'][value='135']:checked) {
+  --z: 135deg;
+}
+
+:root:has([name='z'][value='180']:checked) {
+  --z: 180deg;
+}
+
+:root:has([name='z'][value='225']:checked) {
+  --z: 225deg;
+}
+
+:root:has([name='z'][value='270']:checked) {
+  --z: 270deg;
+}
+
+body {
+  font-family: 'Poppins', 'sans-serif';
+  background: radial-gradient(
+      108.14% 130.58% at 30.97% 24.66%,
+      #872ad0 0%,
+      #b36deb 83.08%,
+      #9014f1 91.97%
+    )
+    no-repeat;
+  color: white;
+  gap: 3em;
+  font-size: 12px;
+}
+
+h2 {
+  display: flex;
+  margin: 0;
+  font-weight: 400;
+}
+
+.controls {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.container {
+  display: flex;
+  gap: 0.5em;
+}
+
+.x-axis,
+.y-axis,
+.z-axis {
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em;
+}
+
+label {
+  display: inline-block;
+  padding: 1em;
+  background-color: #f0ebeb75;
+  backdrop-filter: blur(2);
+  border-radius: 0.2em;
+  padding: 0.5em 1em;
+  transition: background-color 0.3s linear;
+}
+
+input[type='radio'] {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+}
+
+input[type='radio']:focus-visible + label {
+  outline: 2px solid #000;
+}
+
+.controls input[type='radio']:hover + label {
+  background-color: color-mix(in srgb, #f0ebeb94, white 20%);
+}
+
+.controls input[type='radio']:checked + label {
+  background-color: color-mix(in srgb, #f0ebeb94, white 40%);
+}
+
+.cena {
+  width: 200px;
+  height: 200px;
+  perspective: 600px;
+  margin: 100px auto;
+}
+
+.cubo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #d1d1d1;
+  background: #d1d1d1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cubo {
+  transform: translateZ(-100px) rotateY(var(--y)) rotateX(var(--x))
+    rotateZ(var(--z));
+}
+
+.face-1 {
+  transform: translateZ(100px) rotateY(0deg);
+}
+
+.face-2 {
+  transform: translateX(100px) rotateY(90deg);
+}
+
+.face-3 {
+  transform: translateX(-100px) rotateY(90deg);
+}
+
+.face-4 {
+  transform: translateZ(-100px);
+}
+
+.face-5 {
+  transform: translateY(-100px) rotateX(90deg);
+}
+
+.face-6 {
+  transform: translateY(100px) rotateX(-90deg);
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    font-size: 1em;
+  }
+
+  .cena {
+    width: 300px;
+    height: 300px;
+    perspective: 600px;
+    margin: 100px auto 190px;
+  }
+
+  .cubo {
+    transform: translateZ(-150px) rotateY(var(--y)) rotateX(var(--x))
+      rotateZ(var(--z));
+  }
+
+  .face-1 {
+    transform: translateZ(150px) rotateY(0deg);
+  }
+
+  .face-2 {
+    transform: translateX(150px) rotateY(90deg);
+  }
+
+  .face-3 {
+    transform: translateX(-150px) rotateY(90deg);
+  }
+
+  .face-4 {
+    transform: translateZ(-150px);
+  }
+
+  .face-5 {
+    transform: translateY(-150px) rotateX(90deg);
+  }
+
+  .face-6 {
+    transform: translateY(150px) rotateX(-90deg);
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+  }
+
+  .x-axis,
+  .y-axis,
+  .z-axis {
+    max-width: 800px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0.5em;
+  }
+
+  label {
+    padding: 1em 2em;
+  }
+}
